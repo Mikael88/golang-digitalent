@@ -5,34 +5,17 @@ import (
 	"os"
 )
 
-// contoh 
-// go run biodata.go 1
-
 type Teman struct {
-	Absen int
 	Nama string
 	Alamat string
 	Pekerjaan string
 	Alasan string
 }
 
-var temanTeman = []Teman{
-	{1, "Supri", "Jl. Merdeka No. 1", "Software Engineer", "Ingin belajar Golang"},
-	{2, "Joko", "Jl. Proklamasi No. 2", "Data Analyst", "Tertarik dengan fitur concurrency Golang"},
-	{3, "Anwar", "Jl. Sudirman No. 3", "Web Developer", "Memiliki pengalaman dengan bahasa pemrograman lain"},
-}
-
-func tampilkanData(absen int) {
-	for _, teman := range temanTeman {
-		if teman.Absen == absen {
-			fmt.Println("Nama:", teman.Nama)
-			fmt.Println("Alamat:", teman.Alamat)
-			fmt.Println("Pekerjaan:", teman.Pekerjaan)
-			fmt.Println("Alasan memilih kelas Golang:", teman.Alasan)
-			return
-		}
-	}
-	fmt.Println("Teman dengan absen", absen, "tidak ditemukan.")
+var temanTeman = map[int]Teman{
+	1:{"Supri", "Jl. Merdeka No. 1", "Software Engineer", "Ingin belajar Golang"},
+	2:{"Joko", "Jl. Proklamasi No. 2", "Data Analyst", "Tertarik dengan fitur concurrency Golang"},
+	3:{"Anwar", "Jl. Sudirman No. 3", "Web Developer", "Memiliki pengalaman dengan bahasa pemrograman lain"},
 }
 
 func main() {
@@ -52,3 +35,16 @@ func main() {
 
 	tampilkanData(absenInt)
 }
+
+func tampilkanData(absen int) {
+	if absen > len(temanTeman) || absen < 0 {
+		fmt.Println("Teman dengan absen", absen, "tidak ditemukan.")
+		return
+	}
+	var dataTeman = temanTeman[absen]
+	fmt.Println("Nama:", dataTeman.Nama)
+	fmt.Println("Alamat:", dataTeman.Alamat)
+	fmt.Println("Pekerjaan:", dataTeman.Pekerjaan)
+	fmt.Println("Alasan memilih kelas Golang:", dataTeman.Alasan)
+}
+
