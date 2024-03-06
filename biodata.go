@@ -13,9 +13,16 @@ type Teman struct {
 }
 
 var temanTeman = map[int]Teman{
-	1:{"Supri", "Jl. Merdeka No. 1", "Software Engineer", "Ingin belajar Golang"},
-	2:{"Joko", "Jl. Proklamasi No. 2", "Data Analyst", "Tertarik dengan fitur concurrency Golang"},
-	3:{"Anwar", "Jl. Sudirman No. 3", "Web Developer", "Memiliki pengalaman dengan bahasa pemrograman lain"},
+	1: {"Supri", "Jl. Merdeka No. 1", "Software Engineer", "Ingin belajar Golang"},
+	2: {"Joko", "Jl. Proklamasi No. 2", "Data Analyst", "Tertarik dengan fitur concurrency Golang"},
+	3: {"Anwar", "Jl. Sudirman No. 3", "Web Developer", "Memiliki pengalaman dengan bahasa pemrograman lain"},
+	4: {"Budi", "Jl. Diponegoro No. 4", "UI/UX Designer", "Ingin meningkatkan skill programming"},
+	5: {"Dewi", "Jl. Gatot Subroto No. 5", "System Administrator", "Suka dengan keamanan sistem"},
+	6: {"Rini", "Jl. Pahlawan No. 6", "Database Administrator", "Memiliki pengalaman dalam pengelolaan database besar"},
+	7: {"Ahmad", "Jl. Asia Afrika No. 7", "Network Engineer", "Minat dalam pengembangan jaringan komputer"},
+	8: {"Linda", "Jl. Cendrawasih No. 8", "Quality Assurance", "Menyukai pekerjaan yang detail-oriented"},
+	9: {"Rudi", "Jl. Cikini No. 9", "DevOps Engineer", "Berfokus pada otomatisasi dan deployment"},
+	10: {"Siti", "Jl. Kebon Kacang No. 10", "Full Stack Developer", "Ingin memperdalam pengetahuan tentang pengembangan web"},
 }
 
 func main() {
@@ -37,7 +44,7 @@ func main() {
 }
 
 func tampilkanData(absen int) {
-	if absen > len(temanTeman) || absen < 0 {
+	if absen > len(temanTeman) || absen < 1 {
 		fmt.Println("Teman dengan absen", absen, "tidak ditemukan.")
 		return
 	}
